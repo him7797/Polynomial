@@ -103,9 +103,9 @@ int compare(n u,n v)
 			return 1;
 		}
 		else 
-	    {
-	    	return -1;
-		}
+	        {
+	    	  return -1;
+	        }
 		
 	}
 }
@@ -115,11 +115,11 @@ int maximum(n p)
 	int m=p->xe;
 	if(m<p->ye)
 	{
-		m=p->ye;
+	   m=p->ye;
 	}
 	if(m<p->ze)
 	{
-		m=p->ze;
+	   m=p->ze;
 	}
 	return m;
 }
@@ -160,13 +160,13 @@ void evaluate()
 }
 
 void main()
-{
-	a=(n)malloc(sizeof(struct Node));
-	b=(n)malloc(sizeof(struct Node));
+{  
+    a=(n)malloc(sizeof(struct Node));
+    b=(n)malloc(sizeof(struct Node));
     c=(n)malloc(sizeof(struct Node));
     a->link=a;
-b->link=b;
-c->link=c;
+    b->link=b;
+    c->link=c;
     read(a);
     read(b);
     add();
