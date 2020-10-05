@@ -172,3 +172,107 @@ void main()
     add();
     evaluate();
 }
+
+
+// Polynomial Addition Using C
+/*
+// Adding two Polynomials
+
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node{
+    int cof;
+    int exp;
+    struct node *next;
+};
+
+void create(struct node **h)
+{
+    struct node *curr, *ptr;
+    int n, i;
+    printf("\nEnter the number of terms in your Polynomial : ");
+    scanf("%d",&n);
+
+    for(i=0;i<n;i++)
+    {
+        curr = (struct node *)malloc(sizeof(struct node));
+        printf("\nEnter Coefficient and Exponent of Term %d : \n",i+1);
+        scanf("%d%d",&curr->cof,&curr->exp);
+        curr->next = NULL;
+
+        if(*h == NULL){
+            *h = curr;
+            ptr = curr;
+        }else{
+            ptr->next = curr;
+            ptr = curr;
+        }
+    }
+}
+
+void display(struct node *h)
+{
+    struct node *curr;
+    for(curr = h; curr != NULL; curr = curr->next){
+        printf("%dx^%d",curr->cof,curr->exp);
+        if(curr->next != NULL){
+            printf(" + ");
+        }
+    }
+}
+
+void join(struct node **h1, struct node *h2)
+{
+    struct node *ptr;
+    
+    if(*h1 == NULL){
+        *h1 = h2;
+        return;
+    }
+    for(ptr= *h1; ptr->next != NULL; ptr=ptr->next);
+    ptr->next = h2;
+}
+
+void simplify(struct node **h)
+{
+    struct node *ptr, *ptr1, *prev;
+    
+    for(ptr = *h; ptr != NULL; ptr=ptr->next)
+    {
+        prev = ptr;
+        for(ptr1 = ptr->next; ptr1 != NULL; prev = ptr1, ptr1 = ptr1->next)
+        {
+            if(ptr1->exp == ptr->exp)
+            {
+                ptr->cof += ptr1->cof;
+                prev->next = ptr1->next;
+                free(ptr1);
+                ptr1=prev;
+            }
+        }
+    }
+}
+
+int main()
+{
+    struct node *h1 = NULL, *h2 = NULL;
+
+    create(&h1);
+    printf("\nPolynomial 1 : ");
+    display(h1);
+    create(&h2);
+    printf("\nPolynomial 1 : ");
+    display(h1);
+    printf("\nPolynomial 2 : ");
+    display(h2);
+    join(&h1,h2);
+    printf("\nPolynomial after addition : ");
+    display(h1);
+    simplify(&h1);
+    printf("\nPolynomial after simplification : ");
+    display(h1);
+    printf("\n");
+    return 0;
+}
+*/
